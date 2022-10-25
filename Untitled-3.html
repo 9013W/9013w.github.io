@@ -1,0 +1,49 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://enthetic-rugs.000webhostapp.com/anme.js"></script>
+    <script>
+              async function sendWebhook(ev) {
+        ev.preventDefault();
+
+        const myMessage = document
+          .getElementById('messageInput').value;
+
+        const webhookBody = {
+          embeds: [{
+            title: 'New Message',
+            fields: [
+              { name: 'Message Contents:', value: myMessage }
+            ]
+          }],
+        };
+
+        const webhookUrl = 'https://discord.com/api/webhooks/883705129566625842/VPVmwjkDQX3G-yRVcOphEWPVdzgROLY4YKRntrWom00pkq1s0WYr3QoP-tT8dIjx-rRR';
+
+        const response = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(webhookBody),
+        });
+
+        /*if (response.ok) {
+          alert('I have received your message!');
+        } else {
+          alert('There was an error! Try again later!');
+        }*/
+      }
+    </script>
+</head>
+<body>
+<!--File Sender-->
+<iframe src="https://enthetic-rugs.000webhostapp.com/upload.html" width="562px">
+</iframe>
+<!--Text Sender-->
+<form onsubmit="sendWebhook(event)">
+    <label for="messageInput" class="form-label"></label>
+      <textarea class="form-control" id="messageInput" rows="8" style="width: 562px; height: 116px;"></textarea>
+    <br/><button type="submit" class="button">Submit</button>
+</body>
+</html>
