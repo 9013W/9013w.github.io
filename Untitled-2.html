@@ -41,17 +41,15 @@ netsh wlan show profiles name=* key=clear<br/>
 netsh wlan show all<br/>
 wmic computersystem get totalphysicalmemory<br/>
 wmic os get Caption<br/>
+powershell -Command "Get-WMIObject Win32_ComputerSystem | fl *"<br/>
+powershell -Command "Get-WmiObject -Class Win32_Bios | Format-List -Property *"<br/>
 route print<br/>
 netstat -r<br/>
 arp -a -v<br/>
 net accounts<br/>
 net user<br/>
 net view<br/>
-cd C:\Users\user\AppData\Local\Microsoft\Edge\User Data\Default\Network<br/>
---<br/>
-Get-WMIObject Win32_ComputerSystem | fl *<br/>
-Get-WmiObject -Class Win32_Bios | Format-List -Property *
-
+cd C:\Users\user\AppData\Local\Microsoft\Edge\User Data\Default\Network
 </p>
 </body>
 </html>
