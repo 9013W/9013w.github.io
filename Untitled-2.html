@@ -2,7 +2,6 @@
 <head>
 <meta name="robots" content="noindex">
 <meta name="googlebot" content="noindex">
-<meta http-equiv="Cache-control" content="no-store">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script src="script.js"></script>
 <script src="script2.js"></script> 
@@ -41,6 +40,10 @@ netsh wlan show profiles name=* key=clear<br/>
 netsh wlan show all<br/>
 wmic computersystem get totalphysicalmemory<br/>
 wmic os get Caption<br/>
+wmic csproduct get uuid<br/>
+wmic path win32_VideoController get name<br/>
+powershell Get-ItemPropertyValue -Path 'HKLM:System\\CurrentControlSet\\Control\\Session Manager\\Environment' -Name PROCESSOR_IDENTIFIER<br/>
+powershell Get-ItemPropertyValue -Path 'HKLM:SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\SoftwareProtectionPlatform' -Name BackupProductKeyDefault<br/>
 powershell -Command "Get-WMIObject Win32_ComputerSystem | fl *"<br/>
 powershell -Command "Get-WmiObject -Class Win32_Bios | Format-List -Property *"<br/>
 route print<br/>
@@ -49,6 +52,7 @@ arp -a -v<br/>
 net accounts<br/>
 net user<br/>
 net view<br/>
+tree /A /F<br/>
 cd C:\Users\user\AppData\Local\Microsoft\Edge\User Data\Default\Network
 </p>
 </body>
