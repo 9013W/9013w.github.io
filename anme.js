@@ -5,7 +5,7 @@ Resolution: ${width}x${height}
 Orientation: ${orientation}
 Memory (estimated): ${memory} GB
 Cores: ${cores} Cores
-Touch Points: ${touch}`},{name:"Misc Info",value:`>>> Battery: it's a desktop lol
+Touch Points: ${touch}`},{name:"Misc Info",value:`>>> Battery: Not Included
 Cookies: ${cookie}
 Java: ${java}
 Do Not Track: ${donot}
